@@ -1,0 +1,24 @@
+# Dealpad
+
+> Dealpad is an AI-powered buyer-enablement and digital-sales-room platform for B2B sales teams. It centralizes the buyer/seller relationship into shared digital sales rooms, mutual action plans, and content, layering "Sales Mind AI" predictive insight over the deal to help sellers progress complex, multi-stakeholder opportunities. Dealpad integrates with Salesforce, HubSpot, and Zoho CRMs. This profile is maintained by the API Evangelist network; Dealpad does not currently publish a public developer API, OpenAPI, or developer portal.
+
+## Company
+- Website: https://dealpad.io
+- Product overview: https://www.dealpad.io/product
+- Digital Sales Room: https://www.dealpad.io/digital-sales-room
+- Mutual Action Plan: https://www.dealpad.io/mutual-action-plan
+- Sales Mind AI: https://www.dealpad.io/sales-mind-ai
+- Collaboration: https://www.dealpad.io/collaboration
+- Integrations (Salesforce, HubSpot, Zoho): https://www.dealpad.io/integrations
+- Pricing: https://www.dealpad.io/pricing
+- About: https://www.dealpad.io/about
+- Careers: https://www.dealpad.io/careers
+- Request a demo / free trial: https://www.dealpad.io/request-demo
+- Privacy policy: https://www.dealpad.io/privacy-policy
+
+## APIs
+- None published. Dealpad exposes no public developer API, OpenAPI/Swagger definition, or developer documentation at time of profiling.
+
+## Notes
+- Source: https://raw.githubusercontent.com/api-evangelist/dealpad/refs/heads/main/apis.yml
+- Method: generated from the API Evangelist catalog and public site probing (no provider-published llms.txt exists at /llms.txt).
