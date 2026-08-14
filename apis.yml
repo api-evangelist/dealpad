@@ -7,8 +7,11 @@ description: >-
   over each opportunity to help sellers progress complex, multi-stakeholder deals faster.
   Dealpad integrates with major CRMs including Salesforce, HubSpot, and Zoho, and targets
   sales leaders, account executives, and enterprise revenue teams. Added to the API
-  Evangelist network as a portfolio company of 500 Global. Dealpad does not currently
-  publish a public developer API, OpenAPI definition, or developer portal.
+  Evangelist network as a portfolio company of 500 Global. Dealpad publishes no public
+  developer API, OpenAPI definition, developer portal, SDK, or webhook catalog: "API
+  integrations" is sold as a feature of the Large enterprise tier (from $2,999/month)
+  behind a talk-to-sales gate, so the contract is not readable without a commercial
+  conversation.
 url: https://raw.githubusercontent.com/api-evangelist/dealpad/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -17,19 +20,27 @@ x-backed-by:
 x-tier: stub
 x-tier-reason: portfolio-lead
 accessModel:
-  pricing: unknown
+  pricing: paid
   onboarding: approval
-  trial: false
+  trial: true
+  trial_days: 14
   try_now: false
   public: false
   label: Requires approval
-  confidence: medium
-  source: []
-  generated: '2026-07-22'
-  method: derived
+  confidence: high
+  source:
+  - https://www.dealpad.io/pricing
+  - https://www.dealpad.io/request-demo
+  generated: '2026-08-13'
+  method: searched
+  note: >-
+    Three seat-based tiers are published with "From" prices ($499 / $799 / $2,999 per
+    month) but every one ends in a Contact Sales call to action; there is no self-serve
+    checkout. A 14-day free trial is advertised behind a lead-capture form. API access is
+    restricted to the Large tier.
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-18'
+modified: '2026-08-13'
 image: https://www.dealpad.io/e45464bfae270d5d26cf.png
 tags:
 - Company
@@ -59,8 +70,41 @@ common:
   url: https://www.dealpad.io/privacy-policy
 - type: LLMsTxt
   url: llms/dealpad-llms.txt
+- type: Plans
+  url: plans/dealpad-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/dealpad-rate-limits.yml
+- type: Lifecycle
+  url: lifecycle/dealpad-lifecycle.yml
+- type: LinkedIn
+  url: https://www.linkedin.com/company/dealpad-io/
 x-enrichment:
-  date: '2026-07-19'
-  status: backfilled
+  date: '2026-08-13'
+  status: minimal
+  artifacts_added: 5
   pass: local-v1
-  note: backfilled from .gitignore signal + verified work evidence
+  note: >-
+    Full contract-discovery pass run against every dealpad.io host. No published API
+    surface found; real published pricing tiers captured.
+x-coverage:
+  state: gated
+  reason: sales-gate
+  detail: >-
+    Dealpad sells "API integrations" as a line item on its $2,999/month Large tier behind
+    a "Talk to our Enterprise Team" button, and publishes no reference, spec, or developer
+    page anywhere — its only API is a session-authenticated /apiv1/ application backend
+    that answers anonymous callers with HTTP 403.
+  evidence:
+  - url: https://www.dealpad.io/pricing
+    status: 200
+  - url: https://api.dealpad.io/apiv1/c/userLoad
+    status: 403
+  - url: https://www.dealpad.io/openapi.json
+    status: 404
+  - url: https://api.dealpad.io/openapi.json
+    status: 404
+  - url: https://www.dealpad.io/llms.txt
+    status: 404
+  - url: https://app.dealpad.io/
+    status: 526
+  checked: '2026-08-13'
