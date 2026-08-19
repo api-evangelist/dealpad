@@ -38,7 +38,7 @@ accessModel:
     month) but every one ends in a Contact Sales call to action; there is no self-serve
     checkout. A 14-day free trial is advertised behind a lead-capture form. API access is
     restricted to the Large tier.
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-08-13'
 image: https://www.dealpad.io/e45464bfae270d5d26cf.png
