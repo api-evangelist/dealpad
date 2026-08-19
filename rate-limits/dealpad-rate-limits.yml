@@ -1,0 +1,29 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.dealpad.io/pricing
+limit_count: 0
+headers: []
+status_on_exhaustion: null
+note: >-
+  Dealpad publishes no rate limits. There is no developer portal, no API reference and no
+  machine-readable specification on any Dealpad host, so there is no documented quota,
+  window, burst allowance or exhaustion status code to record. No RateLimit-* or
+  X-RateLimit-* response headers were observed on the unauthenticated responses returned
+  by the application backend at api.dealpad.io during probing (that host answers 403 to
+  anonymous callers, so no successful response was available to inspect for limit
+  headers). This is an honest zero, not an unchecked field: API access is an
+  enterprise-tier contract feature at Dealpad, and any limits attached to it are
+  presumably communicated privately during the sales motion.
+searched:
+- url: https://www.dealpad.io/pricing
+  http_status: 200
+  found: seat-based tiers only; no request quotas, no rate limits
+- url: https://www.dealpad.io/integrations
+  http_status: 200
+  found: CRM integration marketing copy only; no technical limits
+- url: https://www.dealpad.io/frequently-asked-questions
+  http_status: 200
+  found: no API or rate-limit content
+- url: https://api.dealpad.io/apiv1/c/userLoad
+  http_status: 403
+  found: no RateLimit-* or X-RateLimit-* headers on the anonymous 403

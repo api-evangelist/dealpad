@@ -1,0 +1,74 @@
+generated: '2026-08-13'
+method: probed
+source: live HTTPS probes of api.dealpad.io + search of every public dealpad.io page
+summary: >-
+  Dealpad publishes no lifecycle commitments of any kind — no versioning policy, no
+  deprecation policy, no changelog, no status page and no SLA. What IS observable is a
+  runtime versioning signal emitted by the application backend, recorded below because it
+  was read directly from response headers rather than from documentation.
+versioning:
+  scheme: uri-path
+  current: apiv1
+  build_version: 3.8.5
+  version_header: dealpad-version
+  docs: null
+  policy_published: false
+  note: >-
+    The application backend namespaces its routes under a literal /apiv1/ URI-path prefix
+    and returns a `dealpad-version: 3.8.5` response header on every response, including
+    anonymous 4xx responses. Both were observed at runtime; neither is documented anywhere
+    public, and Dealpad publishes no statement about what a version bump means for
+    compatibility.
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  note: >-
+    No deprecation or sunset policy is published, and no RFC 8594 Sunset or Deprecation
+    headers were observed. No Deprecation pointer is emitted.
+status_page:
+  url: null
+  published: false
+  note: >-
+    No status page exists. status.dealpad.io resolves only because *.dealpad.io is a
+    wildcard catch-all; it answers 200 with the buyer sales-room SPA shell, not a status
+    dashboard, and must not be recorded as a status page. No StatusPage pointer is
+    emitted.
+sla:
+  url: null
+  uptime_target: null
+  published: false
+changelog:
+  url: null
+  published: false
+  note: No dated changelog or release-notes page exists on any Dealpad host.
+deprecated_operations: []
+availability_observations:
+- host: app.dealpad.io
+  observed: '2026-08-13'
+  http_status: 526
+  finding: >-
+    The production application host was returning Cloudflare error 526 (invalid SSL
+    certificate presented by the origin) on every path at probe time. This is consistent
+    with the *.dealpad.io wildcard certificate having expired on 2026-05-20 — see
+    security/dealpad-domain-security.yml. Recorded as a dated observation, not as an
+    uptime claim.
+- host: help.dealpad.io
+  observed: '2026-08-13'
+  http_status: 403
+  finding: >-
+    The Intercom-hosted help-centre custom domain returns Cloudflare error 1014 (CNAME
+    cross-user banned); the mapping is not active, so the documented support surface is
+    not reachable at its own hostname.
+x-evidence:
+- url: https://api.dealpad.io/openapi.json
+  http_status: 404
+  fetched: '2026-08-13'
+  note: 'response headers carried: server: nginx, dealpad-version: 3.8.5'
+- url: https://app.dealpad.io/
+  http_status: 526
+  fetched: '2026-08-13'
+- url: https://help.dealpad.io/
+  http_status: 403
+  fetched: '2026-08-13'

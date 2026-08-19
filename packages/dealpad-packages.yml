@@ -1,0 +1,67 @@
+generated: '2026-08-13'
+method: searched
+source: public package-registry and source-host searches
+package_count: 0
+official_package_count: 0
+packages: []
+note: >-
+  Dealpad publishes no client libraries. Eight public registries and GitHub were searched
+  and none carries a first-party Dealpad package; there is also no Dealpad GitHub
+  organisation or user account to host source-distributed SDKs. No `SDKs` pointer is
+  emitted from this file — there is no SDK to point at. This is a checked zero, not an
+  unchecked field.
+
+  The GitHub repository search does return nine repositories matching "dealpad", but every
+  one of them belongs to an unrelated third party (student projects and Vercel demos under
+  personal accounts); none is published by dealpad Ltd, and none is recorded here.
+registries_searched:
+- registry: npm
+  query: dealpad
+  url: https://registry.npmjs.org/-/v1/search?text=dealpad
+  result_count: 0
+  found: false
+- registry: pypi
+  query: dealpad
+  url: https://pypi.org/pypi/dealpad/json
+  http_status: 404
+  found: false
+- registry: rubygems
+  query: dealpad
+  url: https://rubygems.org/api/v1/gems/dealpad.json
+  http_status: 404
+  found: false
+- registry: packagist
+  query: dealpad/dealpad
+  url: https://repo.packagist.org/p2/dealpad/dealpad.json
+  http_status: 404
+  found: false
+- registry: crates.io
+  query: dealpad
+  url: https://crates.io/api/v1/crates/dealpad
+  http_status: 403
+  found: false
+  note: registry answered 403 to the unauthenticated probe; no crate is referenced from
+    any Dealpad page either
+- registry: maven-central
+  query: dealpad
+  found: false
+- registry: nuget
+  query: dealpad
+  found: false
+- registry: pkg.go.dev
+  query: dealpad
+  found: false
+source_hosts_searched:
+- host: github.com
+  query: orgs/dealpad
+  http_status: 404
+  found: false
+- host: github.com
+  query: users/dealpad
+  http_status: 404
+  found: false
+- host: github.com
+  query: search/repositories?q=dealpad
+  http_status: 200
+  found: false
+  note: 9 results, all third-party projects unrelated to dealpad Ltd

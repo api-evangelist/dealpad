@@ -1,24 +1,53 @@
 # Dealpad
 
-> Dealpad is an AI-powered buyer-enablement and digital-sales-room platform for B2B sales teams. It centralizes the buyer/seller relationship into shared digital sales rooms, mutual action plans, and content, layering "Sales Mind AI" predictive insight over the deal to help sellers progress complex, multi-stakeholder opportunities. Dealpad integrates with Salesforce, HubSpot, and Zoho CRMs. This profile is maintained by the API Evangelist network; Dealpad does not currently publish a public developer API, OpenAPI, or developer portal.
+> Dealpad (dealpad Ltd) is an AI-powered buyer-enablement and digital-sales-room platform for B2B sales teams. It centralizes the buyer/seller relationship into shared digital sales rooms, mutual action plans, and a content repository, layering "Sales Mind AI" predictive insight over the deal to help sellers progress complex, multi-stakeholder opportunities. Dealpad integrates with Salesforce, HubSpot, and Zoho CRMs. **Dealpad publishes no public developer API, no OpenAPI/AsyncAPI/GraphQL specification, no developer portal, and no SDKs.** API access is sold as an enterprise-tier contract feature, not as a self-serve developer product. This profile is maintained independently by the API Evangelist network and is not affiliated with or endorsed by Dealpad.
 
 ## Company
-- Website: https://dealpad.io
+- Website: https://dealpad.io (canonical host is https://www.dealpad.io)
+- Legal entity: dealpad Ltd — 160 City Road, London EC1V 2NX, UK; 1100 NE Campus Pkwy, Seattle, WA, US
 - Product overview: https://www.dealpad.io/product
 - Digital Sales Room: https://www.dealpad.io/digital-sales-room
 - Mutual Action Plan: https://www.dealpad.io/mutual-action-plan
 - Sales Mind AI: https://www.dealpad.io/sales-mind-ai
 - Collaboration: https://www.dealpad.io/collaboration
+- Forecasting: https://www.dealpad.io/forecasting
 - Integrations (Salesforce, HubSpot, Zoho): https://www.dealpad.io/integrations
 - Pricing: https://www.dealpad.io/pricing
+- FAQ: https://www.dealpad.io/frequently-asked-questions
 - About: https://www.dealpad.io/about
 - Careers: https://www.dealpad.io/careers
-- Request a demo / free trial: https://www.dealpad.io/request-demo
+- Press / media kit: https://www.dealpad.io/media-kit
+- Request a demo / 14-day free trial: https://www.dealpad.io/request-demo
 - Privacy policy: https://www.dealpad.io/privacy-policy
+- LinkedIn: https://www.linkedin.com/company/dealpad-io/
+- G2 reviews: https://www.g2.com/products/dealpad/reviews
 
 ## APIs
-- None published. Dealpad exposes no public developer API, OpenAPI/Swagger definition, or developer documentation at time of profiling.
+- **None published.** Dealpad exposes no public developer API, no OpenAPI/Swagger definition, no GraphQL SDL, no AsyncAPI document, no webhook catalog, no MCP server, and no A2A agent card. There is no developer portal, no API reference, no getting-started guide, and no public support channel for developers.
+- API access is a **paid enterprise feature, not a public product**: "API integrations" and "Custom CRM integration" appear only on the Large tier (from $2,999/month, 8+ seats) of the published pricing page, behind a "Talk to our Enterprise Team" gate. The Small ($499/month) and Growing ($799/month) tiers do not include API access.
+- A private, session-authenticated application backend does exist behind the product — it is namespaced under a `/apiv1/` URI-path prefix, returns a `dealpad-version` response header, and answers anonymous callers with HTTP 403. It is the product's own internal backend, not a documented integration surface, and there is no published contract for it.
+
+## Specs
+- No machine-readable specification of any kind is published. Probed and confirmed absent: `/openapi.json`, `/openapi.yaml`, `/swagger.json`, `/v3/api-docs`, `/api-docs`, `/redoc`, `/graphql` introspection, and `/llms.txt` — on the marketing host, the API host, and the application host.
+
+## Discovery
+- No `/.well-known/` document is served on any Dealpad host. See `well-known/dealpad-well-known.yml` for the full probe record — and note the warning it carries: `*.dealpad.io` is a wildcard DNS catch-all that answers HTTP 200 with a single-page-app HTML shell for hostnames that do not exist, so a 200 on a `/.well-known/` path there is a false positive, not a document.
+
+## Plans
+- Small — from $499/month, up to 3 seats, unlimited buyers and rooms, content repository, collaboration, email support. No API access.
+- Growing — from $799/month, 4-7 seats, adds analytics, CRM integration, SalesMind AI, playbooks & templates, live chat support. No API access.
+- Large — from $2,999/month, 8+ seats, adds custom CRM integration, white-labeled domain, dedicated customer success, phone support, and **API integrations**.
+- A 14-day free trial is advertised, but behind a lead-capture form; there is no self-serve sign-up or checkout.
+
+## Artifacts in this profile
+- plans/dealpad-plans-pricing.yml — the three published tiers, read from the pricing page
+- rate-limits/dealpad-rate-limits.yml — honest zero; no limits are published
+- packages/dealpad-packages.yml — honest zero; eight registries and GitHub searched, no first-party SDK
+- lifecycle/dealpad-lifecycle.yml — no versioning/deprecation policy, no changelog, no status page, no SLA
+- well-known/dealpad-well-known.yml — full `/.well-known/` probe record across four hosts
+- security/dealpad-domain-security.yml — TLS/DNS posture; the `*.dealpad.io` certificate expired 2026-05-20
 
 ## Notes
-- Source: https://raw.githubusercontent.com/api-evangelist/dealpad/refs/heads/main/apis.yml
-- Method: generated from the API Evangelist catalog and public site probing (no provider-published llms.txt exists at /llms.txt).
+- Source of record: https://raw.githubusercontent.com/api-evangelist/dealpad/refs/heads/main/apis.yml
+- Method: generated by the API Evangelist enrichment pipeline from the API Evangelist catalog plus live public probing on 2026-08-13. Dealpad publishes no `/llms.txt` of its own — `https://www.dealpad.io/llms.txt` returns HTTP 404.
+- Corrections, re-scores, and removal are free and require no purchase: info@apievangelist.com

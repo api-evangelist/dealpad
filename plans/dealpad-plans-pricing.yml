@@ -1,0 +1,96 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.dealpad.io/pricing
+docs: https://www.dealpad.io/pricing
+currency: USD
+billing_period: month
+plan_count: 3
+notes: >-
+  Dealpad publishes three seat-based subscription tiers on its public pricing page, each
+  quoted as a "From" price with a "Contact Sales" call to action — there is no self-serve
+  checkout and no published overage schedule. Every tier is sold per sales-team seat with
+  unlimited buyers and unlimited digital sales rooms. API access is NOT part of the
+  self-serve product: "API integrations" and "Custom CRM integration" appear only on the
+  Large (enterprise) tier, which is the wall recorded in this repo's x-coverage block.
+  A 14-day free trial is advertised via a request form, not an instant sign-up.
+plans:
+- name: Small
+  label: For Small sales teams
+  price: 499
+  price_qualifier: from
+  currency: USD
+  billing_period: month
+  cta: Contact Sales
+  seats:
+    included: 3
+    limit_label: Up to 3 seats
+  quota:
+    buyers: unlimited
+    rooms: unlimited
+  overage: not published
+  api_access: false
+  features:
+  - Unlimited buyers
+  - Unlimited rooms
+  - Content repository
+  - Collaboration
+  - Email support
+- name: Growing
+  label: For Growing sales teams
+  price: 799
+  price_qualifier: from
+  currency: USD
+  billing_period: month
+  cta: Contact Sales
+  seats:
+    included: 7
+    limit_label: 4-7 seats
+  quota:
+    buyers: unlimited
+    rooms: unlimited
+  overage: not published
+  api_access: false
+  features:
+  - All features from the Small tier
+  - Live chat support
+  - Analytics
+  - Customer Success
+  - CRM integration
+  - SalesMind AI
+  - Playbooks & templates
+- name: Large
+  label: For Large sales teams
+  price: 2999
+  price_qualifier: from
+  currency: USD
+  billing_period: month
+  cta: Talk to our Enterprise Team
+  seats:
+    included: 8
+    limit_label: 8 seats +
+  quota:
+    buyers: unlimited
+    rooms: unlimited
+  overage: not published
+  api_access: true
+  features:
+  - Everything in the Growing tier
+  - Phone support
+  - Dedicated Customer Success
+  - Custom CRM integration
+  - White Labeled Domain
+  - API integrations
+trial:
+  available: true
+  length_days: 14
+  self_serve: false
+  url: https://www.dealpad.io/request-demo
+  note: >-
+    Advertised on the site as "Request your 14 days free trial" behind a lead-capture
+    form; there is no instant self-serve sign-up.
+x-evidence:
+- url: https://www.dealpad.io/pricing
+  http_status: 200
+  fetched: '2026-08-13'
+  note: Tier names, "From" prices, seat bands and the plan-comparison matrix read verbatim
+    from the rendered pricing page.

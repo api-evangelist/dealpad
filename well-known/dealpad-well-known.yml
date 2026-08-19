@@ -1,0 +1,124 @@
+generated: '2026-08-13'
+method: probed
+source: live HTTPS probes of every Dealpad host reachable from apis.yml
+result: no-hit
+pointer_emitted: false
+note: >-
+  Every /.well-known/ path was probed on every Dealpad host and NOT ONE returned a real
+  document. No WellKnown, SecurityTxt, AgentCard, OpenIDConnect or APICatalog pointer is
+  emitted from this file — it records an absence, and an absence must never be wired as a
+  presence.
+
+  READ THIS BEFORE RE-PROBING — dealpad.io is a wildcard-DNS catch-all and it manufactures
+  false positives. Every *.dealpad.io name (including names that do not exist: a control
+  probe of https://zzzznope.dealpad.io/ returned HTTP 200) resolves to the same host and
+  answers 200 with the HTML shell of the Dealpad buyer sales-room single-page app. On
+  api.dealpad.io the routing splits by file extension: extensionless paths fall through to
+  that SPA shell and return 200 text/html, while paths ending in .json/.txt/.html are
+  proxied to the Spring Boot backend and return a genuine JSON 404. That is why
+  /.well-known/openid-configuration and /.well-known/oauth-authorization-server appear as
+  200 below — those are the SPA shell, NOT discovery documents, and they are recorded as
+  misses. A future run that trusts the status code alone will wrongly credit Dealpad with
+  an OIDC discovery surface it does not serve.
+hosts:
+- host: www.dealpad.io
+  note: marketing site (CloudFront); valid certificate; genuine 404s on every probe
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    hit: false
+  - path: /.well-known/openid-configuration
+    status: 404
+    hit: false
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    hit: false
+  - path: /.well-known/api-catalog
+    status: 404
+    hit: false
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    hit: false
+  - path: /.well-known/agent-card.json
+    status: 404
+    hit: false
+  - path: /.well-known/agent.json
+    status: 404
+    hit: false
+- host: api.dealpad.io
+  note: >-
+    Wildcard catch-all. Extensionless paths return the SPA shell (200 text/html) and are
+    recorded as misses; file-extension paths reach the backend and return a real JSON 404.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    hit: false
+    body: application/json Spring Boot error
+  - path: /.well-known/openid-configuration
+    status: 200
+    hit: false
+    body: text/html SPA shell — NOT a discovery document (catch-all false positive)
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    hit: false
+    body: text/html SPA shell — NOT a discovery document (catch-all false positive)
+  - path: /.well-known/api-catalog
+    status: 200
+    hit: false
+    body: text/html SPA shell — NOT a discovery document (catch-all false positive)
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    hit: false
+  - path: /.well-known/agent-card.json
+    status: 404
+    hit: false
+  - path: /.well-known/agent.json
+    status: 404
+    hit: false
+- host: app.dealpad.io
+  note: >-
+    Application host, fronted by Cloudflare. Unreachable at probe time — every path
+    returns Cloudflare error 526 (invalid SSL certificate at the origin), consistent with
+    the expired *.dealpad.io wildcard certificate recorded in
+    security/dealpad-domain-security.yml.
+  documents:
+  - path: /.well-known/security.txt
+    status: 526
+    hit: false
+  - path: /.well-known/openid-configuration
+    status: 526
+    hit: false
+  - path: /.well-known/oauth-authorization-server
+    status: 526
+    hit: false
+  - path: /.well-known/api-catalog
+    status: 526
+    hit: false
+  - path: /.well-known/ai-plugin.json
+    status: 526
+    hit: false
+  - path: /.well-known/agent-card.json
+    status: 526
+    hit: false
+  - path: /.well-known/agent.json
+    status: 526
+    hit: false
+- host: help.dealpad.io
+  note: >-
+    Intercom-hosted help centre CNAME. Returns Cloudflare error 1014 (CNAME cross-user
+    banned) on every path — the custom-domain mapping is not active, so no Support pointer
+    is wired for it.
+  documents:
+  - path: /
+    status: 403
+    hit: false
+control_probes:
+- url: https://zzzznope.dealpad.io/
+  status: 200
+  finding: >-
+    A subdomain that does not exist answers 200 with the SPA shell. Proves the wildcard
+    catch-all; every 200 text/html on a *.dealpad.io /.well-known/ path is therefore
+    meaningless.
+- url: https://www.dealpad.io/.well-known/zzz-nope
+  status: 404
+  finding: www.dealpad.io returns honest 404s; its misses above are real misses.
