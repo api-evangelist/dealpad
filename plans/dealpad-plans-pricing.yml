@@ -94,3 +94,28 @@ x-evidence:
   fetched: '2026-08-13'
   note: Tier names, "From" prices, seat bands and the plan-comparison matrix read verbatim
     from the rendered pricing page.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - hybrid
+  units: []
+  plans:
+  - name: Small
+    access: other
+    model: hybrid
+    model_how: derived
+    units: []
+    periods: []
+  - name: Growing
+    access: other
+    model: hybrid
+    model_how: derived
+    units: []
+    periods: []
+  - name: Large
+    access: other
+    model: hybrid
+    model_how: derived
+    units: []
+    periods: []
