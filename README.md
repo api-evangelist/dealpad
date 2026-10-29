@@ -64,6 +64,94 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Dealpad is a company surfaced as a portfolio company of 500-global and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Dealpad is an AI-powered buyer-enablement and digital-sales-room platform for B2B sales teams. It centralizes the buyer and seller relationship into shared digital sales rooms, mutual action plans, and curated content, then layers "Sales Mind AI" predictive insight over each opportunity to help sellers progress complex, multi-stakeholder deals faster. Dealpad integrates with major CRMs including Salesforce, HubSpot, and Zoho, and targets sales leaders, account executives, and enterprise revenue teams. Added to the API Evangelist network as a portfolio company of 500 Global. Dealpad publishes no public developer API, OpenAPI definition, developer portal, SDK, or webhook catalog: "API integrations" is sold as a feature of the Large enterprise tier (from $2,999/month) behind a talk-to-sales gate, so the contract is not readable without a commercial conversation.
 
-Backed by: 500-global — https://dealpad.io
+**Areas:** Company · Sales Enablement · Buyer Enablement · Digital Sales Room · Sales · CRM · B2B · Artificial Intelligence
+
+## Dealpad on APIs.io
+
+Everything profiled for Dealpad is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/dealpad/](https://apis.io/providers/dealpad/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Dealpad Domain Security](https://apis.io/security/dealpad/dealpad-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Dealpad Plans Pricing](https://apis.io/plans/dealpad/dealpad-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Dealpad Rate Limits](https://apis.io/rate-limits/dealpad/dealpad-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://dealpad.io)
+- [Pricing](https://www.dealpad.io/pricing)
+- [Sign up](https://www.dealpad.io/request-demo)
+- [Privacy policy](https://www.dealpad.io/privacy-policy)
+
+## API Evangelist rating
+
+**Kin Score 17.8** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 0.0 |
+| Access clarity | 65.8 |
+
+**Agent readiness 5.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | yes |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 9.1** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/dealpad/](https://apis.io/providers/dealpad/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Dealpad: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/dealpad/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
